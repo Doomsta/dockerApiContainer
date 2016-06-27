@@ -1,0 +1,6 @@
+FROM golang:1.7-alpine
+RUN apk --no-cache --update add curl git
+COPY /src/main.go /main.go
+RUN go get github.com/go-martini/martini
+EXPOSE 3000
+CMD [ "go", "run", "/main.go" ]
